@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       text: `AI生成的圣经片段：${prompt || '基于主题生成的灵感经文'}`,
       reference: 'AI Generated',
       language,
-      topic: topic || 'general',
+      topics: topic ? [topic] : ['general'],
       annotation: '这是由AI生成的圣经片段，旨在提供灵感和指导。',
       category: topic || 'general',
       isAIGenerated: true,

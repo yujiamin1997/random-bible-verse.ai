@@ -37,8 +37,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-white text-opacity-80 hover:text-gold-200 transition-colors">
-                  {uiTexts.nav.about}
+                <Link href="/faq" className="text-white text-opacity-80 hover:text-gold-200 transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>

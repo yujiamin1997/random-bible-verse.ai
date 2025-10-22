@@ -39,10 +39,10 @@ export default function Header() {
                        {uiTexts.nav.topics}
                      </Link>
                      <Link 
-                       href="/about" 
+                       href="/faq" 
                        className="text-white hover:text-gold-200 transition-colors font-medium"
                      >
-                       {uiTexts.nav.about}
+                       FAQ
                      </Link>
                      <Link 
                        href="/contact" 

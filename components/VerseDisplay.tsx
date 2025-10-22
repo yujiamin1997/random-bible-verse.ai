@@ -1,7 +1,6 @@
 'use client';
 
 import { BibleVerse, BackgroundImage } from '@/lib/data';
-import { Download, Share2, Heart } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from './LanguageContext';
 
@@ -13,36 +12,8 @@ interface VerseDisplayProps {
 
 export default function VerseDisplay({ verse, background, isLoading }: VerseDisplayProps) {
   const { uiTexts } = useLanguage();
-  const [isSaved, setIsSaved] = useState(false);
   const [showAnnotation, setShowAnnotation] = useState(false);
 
-  const handleSave = () => {
-    // TODO: 实现保存功能
-    setIsSaved(true);
-    setTimeout(() => setIsSaved(false), 2000);
-  };
-
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'Random Bible Verse',
-          text: verse.text,
-          url: window.location.href,
-        });
-      } catch (error) {
-        console.error('Error sharing:', error);
-      }
-    } else {
-      // 复制到剪贴板
-      navigator.clipboard.writeText(`${verse.text}\n- ${verse.reference}`);
-    }
-  };
-
-  const handleDownload = () => {
-    // TODO: 实现下载为图片功能
-    console.log('Download as image');
-  };
 
   return (
     <div className="relative">
@@ -60,36 +31,6 @@ export default function VerseDisplay({ verse, background, isLoading }: VerseDisp
         
         {/* 内容 */}
         <div className="relative z-10 max-w-4xl mx-auto">
-          {/* 操作按钮 */}
-          <div className="absolute top-4 right-4 flex gap-2">
-            <button
-              onClick={handleSave}
-              className={`p-2 rounded-lg transition-all duration-200 ${
-                isSaved 
-                  ? 'bg-green-500 text-white' 
-                  : 'bg-white bg-opacity-20 text-white hover:bg-opacity-30'
-              }`}
-              title="Save verse"
-            >
-              <Heart className={`w-5 h-5 ${isSaved ? 'fill-current' : ''}`} />
-            </button>
-            
-            <button
-              onClick={handleShare}
-              className="p-2 rounded-lg bg-white bg-opacity-20 text-white hover:bg-opacity-30 transition-all duration-200"
-              title="Share verse"
-            >
-              <Share2 className="w-5 h-5" />
-            </button>
-            
-            <button
-              onClick={handleDownload}
-              className="p-2 rounded-lg bg-white bg-opacity-20 text-white hover:bg-opacity-30 transition-all duration-200"
-              title="Download as image"
-            >
-              <Download className="w-5 h-5" />
-            </button>
-          </div>
 
           {/* 圣经片段文本 */}
           <div className="mb-6">
@@ -102,11 +43,16 @@ export default function VerseDisplay({ verse, background, isLoading }: VerseDisp
           </div>
 
           {/* Topic标签 */}
-          {verse.topic && (
-            <div className="mb-4">
-              <span className="inline-block px-4 py-2 bg-white bg-opacity-20 text-white rounded-full text-sm font-medium backdrop-blur-sm">
-                {verse.topic.charAt(0).toUpperCase() + verse.topic.slice(1)}
-              </span>
+          {verse.topics && verse.topics.length > 0 && (
+            <div className="mb-4 flex flex-wrap justify-center gap-2">
+              {verse.topics.map((topic, index) => (
+                <span 
+                  key={index}
+                  className="inline-block px-4 py-2 bg-white bg-opacity-20 text-white rounded-full text-sm font-medium backdrop-blur-sm"
+                >
+                  {topic.charAt(0).toUpperCase() + topic.slice(1)}
+                </span>
+              ))}
             </div>
           )}
 

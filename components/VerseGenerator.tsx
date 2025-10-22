@@ -105,33 +105,38 @@ export default function VerseGenerator() {
       )}
       {/* 控制面板 */}
       <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <TopicSelector
-            topics={availableTopics}
-            selectedTopic={selectedTopic}
-            onTopicChange={handleTopicChange}
-          />
-          
+        {/* 第一行：Background选择器 */}
+        <div className="mb-4">
           <BackgroundSelector
             onBackgroundChange={generateRandomBackground}
           />
         </div>
         
-        <div className="flex justify-center">
-                 <button
-                   onClick={generateRandomVerse}
-                   disabled={isLoading}
-                   className="px-8 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white rounded-xl hover:from-gold-600 hover:to-gold-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                 >
-                   {isLoading ? (
-                     <div className="flex items-center">
-                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                       {uiTexts.controls.generating}
-                     </div>
-                   ) : (
-                     uiTexts.controls.generateNewVerse
-                   )}
-                 </button>
+        {/* 第二行：Topic选择器 */}
+        <div className="mb-4">
+          <TopicSelector
+            topics={availableTopics}
+            selectedTopic={selectedTopic}
+            onTopicChange={handleTopicChange}
+          />
+        </div>
+        
+        {/* 第三行：Generate New Verse按钮 */}
+        <div>
+          <button
+            onClick={generateRandomVerse}
+            disabled={isLoading}
+            className="w-full px-8 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white rounded-xl hover:from-gold-600 hover:to-gold-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isLoading ? (
+              <div className="flex items-center justify-center">
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                {uiTexts.controls.generating}
+              </div>
+            ) : (
+              uiTexts.controls.generateNewVerse
+            )}
+          </button>
         </div>
       </div>
     </div>

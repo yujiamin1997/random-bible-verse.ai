@@ -7,7 +7,7 @@ export interface BibleVerse {
   text: string;
   reference: string;
   language: string;
-  topic: string;
+  topics: string[];
   annotation: string;
   category: 'love' | 'hope' | 'faith' | 'peace' | 'strength' | 'wisdom' | 'comfort' | 'guidance';
   isAIGenerated?: boolean;
@@ -34,21 +34,21 @@ export interface Topic {
 export const bibleVerses: BibleVerse[] = [
   // 爱 (Love)
   {
-    id: 'love-001',
-    text: 'For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.',
-    reference: 'John 3:16',
+    id: 'love-hope-001',
+    text: 'And now these three remain: faith, hope and love. But the greatest of these is love.',
+    reference: '1 Corinthians 13:13',
     language: 'en',
-    topic: 'love',
-    annotation: 'This verse demonstrates the ultimate expression of divine love - God sacrificing His only Son for humanity\'s salvation.',
+    topics: ['love', 'hope', 'faith'],
+    annotation: 'Paul emphasizes that love is the greatest virtue, but faith and hope are also essential Christian qualities.',
     category: 'love'
   },
   {
-    id: 'love-002',
-    text: 'Love is patient, love is kind. It does not envy, it does not boast, it is not proud.',
-    reference: '1 Corinthians 13:4',
+    id: 'love-hope-002',
+    text: 'But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control.',
+    reference: 'Galatians 5:22-23',
     language: 'en',
-    topic: 'love',
-    annotation: 'Paul describes the characteristics of true love, emphasizing humility and selflessness.',
+    topics: ['love', 'peace', 'faith'],
+    annotation: 'Paul lists the fruits of the Spirit, showing how love, peace, and faithfulness work together in Christian character.',
     category: 'love'
   },
   {
@@ -56,7 +56,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Above all, love each other deeply, because love covers over a multitude of sins.',
     reference: '1 Peter 4:8',
     language: 'en',
-    topic: 'love',
+    topics: ['love'],
     annotation: 'Love has the power to forgive and overlook faults, creating unity and harmony.',
     category: 'love'
   },
@@ -65,7 +65,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'We love because he first loved us.',
     reference: '1 John 4:19',
     language: 'en',
-    topic: 'love',
+    topics: ['love'],
     annotation: 'Our ability to love others stems from God\'s love for us - love is both received and given.',
     category: 'love'
   },
@@ -74,7 +74,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'And now these three remain: faith, hope and love. But the greatest of these is love.',
     reference: '1 Corinthians 13:13',
     language: 'en',
-    topic: 'love',
+    topics: ['love'],
     annotation: 'Love is declared as the greatest virtue, surpassing even faith and hope in importance.',
     category: 'love'
   },
@@ -85,7 +85,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.',
     reference: 'Jeremiah 29:11',
     language: 'en',
-    topic: 'hope',
+    topics: ['hope'],
     annotation: 'God promises a future filled with hope and prosperity for those who trust in Him.',
     category: 'hope'
   },
@@ -94,17 +94,17 @@ export const bibleVerses: BibleVerse[] = [
     text: 'And we know that in all things God works for the good of those who love him, who have been called according to his purpose.',
     reference: 'Romans 8:28',
     language: 'en',
-    topic: 'hope',
+    topics: ['hope'],
     annotation: 'Even in difficult circumstances, God works everything together for our ultimate good.',
     category: 'hope'
   },
   {
-    id: 'hope-003',
+    id: 'hope-peace-001',
     text: 'May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit.',
     reference: 'Romans 15:13',
     language: 'en',
-    topic: 'hope',
-    annotation: 'God is the source of hope and can fill believers with overflowing hope through the Holy Spirit.',
+    topics: ['hope', 'peace', 'faith'],
+    annotation: 'Paul prays for believers to experience hope, peace, and faith through the power of the Holy Spirit.',
     category: 'hope'
   },
   {
@@ -112,7 +112,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.',
     reference: 'Isaiah 40:31',
     language: 'en',
-    topic: 'hope',
+    topics: ['hope'],
     annotation: 'Trusting in God provides supernatural strength and endurance for life\'s journey.',
     category: 'hope'
   },
@@ -121,7 +121,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'The Lord is good to those whose hope is in him, to the one who seeks him.',
     reference: 'Lamentations 3:25',
     language: 'en',
-    topic: 'hope',
+    topics: ['hope'],
     annotation: 'God shows goodness to those who place their hope and trust in Him.',
     category: 'hope'
   },
@@ -132,17 +132,17 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Now faith is confidence in what we hope for and assurance about what we do not see.',
     reference: 'Hebrews 11:1',
     language: 'en',
-    topic: 'faith',
+    topics: ['faith'],
     annotation: 'Faith is defined as confident trust in God\'s promises, even when we cannot see the outcome.',
     category: 'faith'
   },
   {
-    id: 'faith-002',
+    id: 'faith-strength-001',
     text: 'I can do all this through him who gives me strength.',
     reference: 'Philippians 4:13',
     language: 'en',
-    topic: 'faith',
-    annotation: 'Through faith in Christ, believers can accomplish anything God calls them to do.',
+    topics: ['faith', 'strength'],
+    annotation: 'Through faith in Christ, believers can accomplish anything God calls them to do, receiving divine strength.',
     category: 'faith'
   },
   {
@@ -150,7 +150,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Trust in the Lord with all your heart and lean not on your own understanding.',
     reference: 'Proverbs 3:5',
     language: 'en',
-    topic: 'faith',
+    topics: ['faith'],
     annotation: 'True faith requires complete trust in God rather than relying on human wisdom.',
     category: 'faith'
   },
@@ -159,7 +159,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Jesus replied, "Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, \'Move from here to there,\' and it will move."',
     reference: 'Matthew 17:20',
     language: 'en',
-    topic: 'faith',
+    topics: ['faith'],
     annotation: 'Even the smallest amount of genuine faith can accomplish extraordinary things.',
     category: 'faith'
   },
@@ -168,7 +168,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'And without faith it is impossible to please God, because anyone who comes to him must believe that he exists and that he rewards those who earnestly seek him.',
     reference: 'Hebrews 11:6',
     language: 'en',
-    topic: 'faith',
+    topics: ['faith'],
     annotation: 'Faith is essential for a relationship with God and is rewarded by Him.',
     category: 'faith'
   },
@@ -179,17 +179,17 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid.',
     reference: 'John 14:27',
     language: 'en',
-    topic: 'peace',
+    topics: ['peace'],
     annotation: 'Jesus offers a unique peace that transcends worldly understanding and calms troubled hearts.',
     category: 'peace'
   },
   {
-    id: 'peace-002',
+    id: 'peace-comfort-001',
     text: 'And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.',
     reference: 'Philippians 4:7',
     language: 'en',
-    topic: 'peace',
-    annotation: 'God\'s peace provides protection for both emotions and thoughts when we trust in Christ.',
+    topics: ['peace', 'comfort'],
+    annotation: 'God\'s peace provides protection and comfort for both emotions and thoughts when we trust in Christ.',
     category: 'peace'
   },
   {
@@ -197,7 +197,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Be still, and know that I am God.',
     reference: 'Psalm 46:10',
     language: 'en',
-    topic: 'peace',
+    topics: ['peace'],
     annotation: 'Finding peace requires stillness and recognition of God\'s sovereignty over all situations.',
     category: 'peace'
   },
@@ -206,7 +206,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Cast all your anxiety on him because he cares for you.',
     reference: '1 Peter 5:7',
     language: 'en',
-    topic: 'peace',
+    topics: ['peace'],
     annotation: 'We can find peace by giving our worries to God, knowing He cares deeply for us.',
     category: 'peace'
   },
@@ -215,7 +215,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'You will keep in perfect peace those whose minds are steadfast, because they trust in you.',
     reference: 'Isaiah 26:3',
     language: 'en',
-    topic: 'peace',
+    topics: ['peace'],
     annotation: 'Perfect peace comes to those who maintain unwavering trust in God.',
     category: 'peace'
   },
@@ -226,17 +226,17 @@ export const bibleVerses: BibleVerse[] = [
     text: 'The Lord is my strength and my shield; my heart trusts in him, and he helps me.',
     reference: 'Psalm 28:7',
     language: 'en',
-    topic: 'strength',
+    topics: ['strength'],
     annotation: 'God provides both protection and power to those who place their trust in Him.',
     category: 'strength'
   },
   {
-    id: 'strength-002',
+    id: 'strength-faith-001',
     text: 'I have been crucified with Christ and I no longer live, but Christ lives in me.',
     reference: 'Galatians 2:20',
     language: 'en',
-    topic: 'strength',
-    annotation: 'True strength comes from allowing Christ to live through us rather than relying on our own power.',
+    topics: ['strength', 'faith'],
+    annotation: 'True strength comes from allowing Christ to live through us rather than relying on our own power, demonstrating faith.',
     category: 'strength'
   },
   {
@@ -244,7 +244,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'The Lord your God is with you, the Mighty Warrior who saves.',
     reference: 'Zephaniah 3:17',
     language: 'en',
-    topic: 'strength',
+    topics: ['strength'],
     annotation: 'God is a powerful warrior who fights for His people and provides salvation.',
     category: 'strength'
   },
@@ -253,7 +253,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'But he said to me, "My grace is sufficient for you, for my power is made perfect in weakness."',
     reference: '2 Corinthians 12:9',
     language: 'en',
-    topic: 'strength',
+    topics: ['strength'],
     annotation: 'God\'s strength is most evident when we acknowledge our own weakness and depend on Him.',
     category: 'strength'
   },
@@ -262,7 +262,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Finally, be strong in the Lord and in his mighty power.',
     reference: 'Ephesians 6:10',
     language: 'en',
-    topic: 'strength',
+    topics: ['strength'],
     annotation: 'Our strength comes from being connected to God\'s unlimited power.',
     category: 'strength'
   },
@@ -273,17 +273,17 @@ export const bibleVerses: BibleVerse[] = [
     text: 'The fear of the Lord is the beginning of wisdom, and knowledge of the Holy One is understanding.',
     reference: 'Proverbs 9:10',
     language: 'en',
-    topic: 'wisdom',
+    topics: ['wisdom'],
     annotation: 'True wisdom begins with reverence for God and understanding of His character.',
     category: 'wisdom'
   },
   {
-    id: 'wisdom-002',
+    id: 'wisdom-guidance-001',
     text: 'If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you.',
     reference: 'James 1:5',
     language: 'en',
-    topic: 'wisdom',
-    annotation: 'God freely gives wisdom to those who ask for it, without judgment or criticism.',
+    topics: ['wisdom', 'guidance'],
+    annotation: 'God generously provides wisdom and guidance to those who seek it, without judgment or criticism.',
     category: 'wisdom'
   },
   {
@@ -291,7 +291,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.',
     reference: 'Proverbs 3:5-6',
     language: 'en',
-    topic: 'wisdom',
+    topics: ['wisdom'],
     annotation: 'Wisdom involves trusting God completely and allowing Him to guide our life decisions.',
     category: 'wisdom'
   },
@@ -300,7 +300,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'The wise store up knowledge, but the mouth of a fool invites ruin.',
     reference: 'Proverbs 10:14',
     language: 'en',
-    topic: 'wisdom',
+    topics: ['wisdom'],
     annotation: 'Wisdom involves careful learning and thoughtful speech, while foolishness leads to destruction.',
     category: 'wisdom'
   },
@@ -309,7 +309,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'For the Lord gives wisdom; from his mouth come knowledge and understanding.',
     reference: 'Proverbs 2:6',
     language: 'en',
-    topic: 'wisdom',
+    topics: ['wisdom'],
     annotation: 'All true wisdom, knowledge, and understanding originate from God.',
     category: 'wisdom'
   },
@@ -320,17 +320,17 @@ export const bibleVerses: BibleVerse[] = [
     text: 'The Lord is my shepherd, I lack nothing.',
     reference: 'Psalm 23:1',
     language: 'en',
-    topic: 'comfort',
+    topics: ['comfort'],
     annotation: 'God provides complete care and provision for His people, like a shepherd caring for sheep.',
     category: 'comfort'
   },
   {
-    id: 'comfort-002',
+    id: 'comfort-peace-001',
     text: 'Come to me, all you who are weary and burdened, and I will give you rest.',
     reference: 'Matthew 11:28',
     language: 'en',
-    topic: 'comfort',
-    annotation: 'Jesus invites all who are struggling to find rest and comfort in Him.',
+    topics: ['comfort', 'peace'],
+    annotation: 'Jesus invites all who are struggling to find rest, comfort, and peace in Him.',
     category: 'comfort'
   },
   {
@@ -338,7 +338,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Praise be to the God and Father of our Lord Jesus Christ, the Father of compassion and the God of all comfort.',
     reference: '2 Corinthians 1:3',
     language: 'en',
-    topic: 'comfort',
+    topics: ['comfort'],
     annotation: 'God is the ultimate source of compassion and comfort for all who are suffering.',
     category: 'comfort'
   },
@@ -347,7 +347,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'He heals the brokenhearted and binds up their wounds.',
     reference: 'Psalm 147:3',
     language: 'en',
-    topic: 'comfort',
+    topics: ['comfort'],
     annotation: 'God has the power to heal emotional pain and restore wounded hearts.',
     category: 'comfort'
   },
@@ -356,7 +356,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Even though I walk through the darkest valley, I will fear no evil, for you are with me.',
     reference: 'Psalm 23:4',
     language: 'en',
-    topic: 'comfort',
+    topics: ['comfort'],
     annotation: 'God\'s presence provides courage and comfort even in life\'s darkest moments.',
     category: 'comfort'
   },
@@ -367,17 +367,17 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Your word is a lamp for my feet, a light on my path.',
     reference: 'Psalm 119:105',
     language: 'en',
-    topic: 'guidance',
+    topics: ['guidance'],
     annotation: 'God\'s Word provides clear direction and illumination for life\'s journey.',
     category: 'guidance'
   },
   {
-    id: 'guidance-002',
+    id: 'guidance-wisdom-001',
     text: 'I will instruct you and teach you in the way you should go; I will counsel you with my loving eye on you.',
     reference: 'Psalm 32:8',
     language: 'en',
-    topic: 'guidance',
-    annotation: 'God promises to personally guide and counsel those who seek His direction.',
+    topics: ['guidance', 'wisdom'],
+    annotation: 'God promises to provide instruction, teaching, and wise counsel with loving care.',
     category: 'guidance'
   },
   {
@@ -385,7 +385,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'In their hearts humans plan their course, but the Lord establishes their steps.',
     reference: 'Proverbs 16:9',
     language: 'en',
-    topic: 'guidance',
+    topics: ['guidance'],
     annotation: 'While we may make plans, God ultimately determines the path our lives will take.',
     category: 'guidance'
   },
@@ -394,7 +394,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Whether you turn to the right or to the left, your ears will hear a voice behind you, saying, "This is the way; walk in it."',
     reference: 'Isaiah 30:21',
     language: 'en',
-    topic: 'guidance',
+    topics: ['guidance'],
     annotation: 'God provides clear direction through His voice, guiding us in the right path.',
     category: 'guidance'
   },
@@ -403,7 +403,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Jesus Christ is the same yesterday and today and forever.',
     reference: 'Hebrews 13:8',
     language: 'en',
-    topic: 'guidance',
+    topics: ['guidance'],
     annotation: 'Christ\'s unchanging nature provides a stable foundation for guidance and direction.',
     category: 'guidance'
   },
@@ -414,7 +414,7 @@ export const bibleVerses: BibleVerse[] = [
     text: '神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。',
     reference: '约翰福音 3:16',
     language: 'zh',
-    topic: 'love',
+    topics: ['love'],
     annotation: '这节经文展现了神对人类最伟大的爱——牺牲独生子来拯救人类。',
     category: 'love'
   },
@@ -423,7 +423,7 @@ export const bibleVerses: BibleVerse[] = [
     text: '耶和华说：我知道我向你们所怀的意念是赐平安的意念，不是降灾祸的意念，要叫你们末后有指望。',
     reference: '耶利米书 29:11',
     language: 'zh',
-    topic: 'hope',
+    topics: ['hope'],
     annotation: '神应许给信靠祂的人一个充满希望和繁荣的未来。',
     category: 'hope'
   },
@@ -432,7 +432,7 @@ export const bibleVerses: BibleVerse[] = [
     text: '我靠着那加给我力量的，凡事都能做。',
     reference: '腓立比书 4:13',
     language: 'zh',
-    topic: 'faith',
+    topics: ['faith'],
     annotation: '通过信靠基督，信徒能够完成神呼召他们做的任何事情。',
     category: 'faith'
   },
@@ -441,7 +441,7 @@ export const bibleVerses: BibleVerse[] = [
     text: '我留下平安给你们；我将我的平安赐给你们。我所赐的，不像世人所赐的。你们心里不要忧愁，也不要胆怯。',
     reference: '约翰福音 14:27',
     language: 'zh',
-    topic: 'peace',
+    topics: ['peace'],
     annotation: '耶稣提供一种超越世界理解的独特平安，能够安慰忧虑的心。',
     category: 'peace'
   },
@@ -450,7 +450,7 @@ export const bibleVerses: BibleVerse[] = [
     text: '耶和华是我的力量，是我的盾牌；我心里倚靠他，就得帮助。',
     reference: '诗篇 28:7',
     language: 'zh',
-    topic: 'strength',
+    topics: ['strength'],
     annotation: '神为那些信靠祂的人提供保护和力量。',
     category: 'strength'
   },
@@ -461,7 +461,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'لأنه هكذا أحب الله العالم حتى بذل ابنه الوحيد، لكي لا يهلك كل من يؤمن به، بل تكون له الحياة الأبدية.',
     reference: 'يوحنا 3:16',
     language: 'ar',
-    topic: 'love',
+    topics: ['love'],
     annotation: 'هذه الآية تظهر أعظم تعبير عن المحبة الإلهية - الله يضحي بابنه الوحيد لخلاص البشرية.',
     category: 'love'
   },
@@ -470,7 +470,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'لأني أنا عارف الأفكار التي أنا مفتكر بها عنكم، يقول الرب، أفكار سلام لا شر، لأعطيكم آخرة ورجاء.',
     reference: 'إرميا 29:11',
     language: 'ar',
-    topic: 'hope',
+    topics: ['hope'],
     annotation: 'الله يعد بمستقبل مليء بالرجاء والازدهار لمن يثقون به.',
     category: 'hope'
   },
@@ -479,7 +479,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'أستطيع كل شيء في المسيح الذي يقويني.',
     reference: 'فيلبي 4:13',
     language: 'ar',
-    topic: 'faith',
+    topics: ['faith'],
     annotation: 'من خلال الإيمان بالمسيح، يمكن للمؤمنين إنجاز أي شيء يدعوهم الله إليه.',
     category: 'faith'
   },
@@ -490,7 +490,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.',
     reference: 'Juan 3:16',
     language: 'es',
-    topic: 'love',
+    topics: ['love'],
     annotation: 'Este versículo demuestra la máxima expresión del amor divino - Dios sacrificando a Su único Hijo para la salvación de la humanidad.',
     category: 'love'
   },
@@ -499,7 +499,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.',
     reference: 'Jeremías 29:11',
     language: 'es',
-    topic: 'hope',
+    topics: ['hope'],
     annotation: 'Dios promete un futuro lleno de esperanza y prosperidad para aquellos que confían en Él.',
     category: 'hope'
   },
@@ -508,7 +508,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Todo lo puedo en Cristo que me fortalece.',
     reference: 'Filipenses 4:13',
     language: 'es',
-    topic: 'faith',
+    topics: ['faith'],
     annotation: 'A través de la fe en Cristo, los creyentes pueden lograr cualquier cosa que Dios los llame a hacer.',
     category: 'faith'
   },
@@ -519,7 +519,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.',
     reference: 'João 3:16',
     language: 'pt',
-    topic: 'love',
+    topics: ['love'],
     annotation: 'Este versículo demonstra a máxima expressão do amor divino - Deus sacrificando Seu único Filho para a salvação da humanidade.',
     category: 'love'
   },
@@ -528,7 +528,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Porque eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais.',
     reference: 'Jeremias 29:11',
     language: 'pt',
-    topic: 'hope',
+    topics: ['hope'],
     annotation: 'Deus promete um futuro cheio de esperança e prosperidade para aqueles que confiam nEle.',
     category: 'hope'
   },
@@ -537,7 +537,7 @@ export const bibleVerses: BibleVerse[] = [
     text: 'Posso todas as coisas naquele que me fortalece.',
     reference: 'Filipenses 4:13',
     language: 'pt',
-    topic: 'faith',
+    topics: ['faith'],
     annotation: 'Através da fé em Cristo, os crentes podem realizar qualquer coisa que Deus os chame para fazer.',
     category: 'faith'
   }
@@ -928,7 +928,7 @@ export function getRandomVerse(language: string = 'en', topic?: string): BibleVe
   let filteredVerses = bibleVerses.filter(verse => verse.language === language);
   
   if (topic) {
-    filteredVerses = filteredVerses.filter(verse => verse.topic === topic);
+    filteredVerses = filteredVerses.filter(verse => verse.topics.includes(topic));
   }
   
   if (filteredVerses.length === 0) {
@@ -956,7 +956,7 @@ export function getRandomBackgroundImage(category?: string): BackgroundImage | n
 
 export function getVersesByTopic(topic: string, language: string = 'en'): BibleVerse[] {
   return bibleVerses.filter(verse => 
-    verse.topic === topic && verse.language === language
+    verse.topics.includes(topic) && verse.language === language
   );
 }
 
@@ -965,7 +965,9 @@ export function getTopicsByLanguage(language: string): Topic[] {
   
   bibleVerses.forEach(verse => {
     if (verse.language === language) {
-      availableTopics.add(verse.topic);
+      verse.topics.forEach(topic => {
+        availableTopics.add(topic);
+      });
     }
   });
   

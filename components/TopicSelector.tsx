@@ -31,7 +31,7 @@ export default function TopicSelector({ topics, selectedTopic, onTopicChange }: 
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full px-4 py-2 text-left bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 flex items-center justify-between"
+          className="w-full px-4 py-3 text-left bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 flex items-center justify-between hover:border-primary-400 transition-colors"
         >
           <span className="truncate">
             {selectedTopicData ? selectedTopicData.nameEn : uiTexts.topicSelector.allTopics}
@@ -44,7 +44,7 @@ export default function TopicSelector({ topics, selectedTopic, onTopicChange }: 
             <button
               type="button"
               onClick={() => handleTopicSelect('')}
-              className={`w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors ${
+              className={`w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors ${
                 selectedTopic === '' ? 'bg-primary-50 text-primary-700' : 'text-gray-700'
               }`}
             >
@@ -55,7 +55,7 @@ export default function TopicSelector({ topics, selectedTopic, onTopicChange }: 
                 key={topic.id}
                 type="button"
                 onClick={() => handleTopicSelect(topic.id)}
-                className={`w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors flex items-center ${
+                className={`w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors flex items-center ${
                   selectedTopic === topic.id ? 'bg-primary-50 text-primary-700' : 'text-gray-700'
                 }`}
               >
